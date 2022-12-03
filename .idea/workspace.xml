@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e161228f-91c8-46d2-9fbd-149cb10c2883" name="Changes" comment="class">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Identity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Identity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Identity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +21,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -52,7 +52,7 @@
       <option name="presentableId" value="Default" />
       <updated>1670079261285</updated>
       <workItem from="1670079263129" duration="2539000" />
-      <workItem from="1670083913581" duration="862000" />
+      <workItem from="1670083913581" duration="992000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1670079288928</created>
@@ -89,7 +89,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670084660159</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="class">
+      <created>1670085026135</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1670085026135</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
