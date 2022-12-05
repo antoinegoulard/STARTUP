@@ -1,3 +1,5 @@
+package fr.efrei.domain;
+
 public class Demographic_Information {
     private String race;
     private String gender;

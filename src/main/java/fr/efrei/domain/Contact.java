@@ -1,3 +1,5 @@
+package fr.efrei.domain;
+
 public class Contact {
     private int cellPhoneNo;
     private String email;

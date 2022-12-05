@@ -1,3 +1,5 @@
+package fr.efrei.domain;
+
 public class Employee extends Demographic_Information {
     private int employeeNo;
    private String name;
@@ -7,8 +9,6 @@ public class Employee extends Demographic_Information {
         super(race, gender);// recup les info demographique propre a chaque employee
         this.employeeNo = employeeNo;
         this.name = name;
-
-
     }
 
 

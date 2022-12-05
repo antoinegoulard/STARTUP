@@ -1,3 +1,5 @@
+package fr.efrei.domain;
+
 public class Address {
 
     private String street_address;
