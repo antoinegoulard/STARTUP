@@ -1,6 +1,6 @@
 package fr.efrei.domain;
 
-public class Demographic_Information {
+public class DemInfo {
     private String race;
     private String gender;
 
@@ -13,15 +13,8 @@ public class Demographic_Information {
         return race;
     }
 
-    public void setRace(String race) {
-        this.race = race;
-    }
-
     public String getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
 }

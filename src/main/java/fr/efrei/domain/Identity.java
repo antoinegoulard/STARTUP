@@ -13,15 +13,8 @@ public class Identity {
         return passport;
     }
 
-    public void setPassport(String passport) {
-        this.passport = passport;
-    }
-
     public int getIdNo() {
         return idNo;
     }
 
-    public void setIdNo(int idNo) {
-        this.idNo = idNo;
-    }
 }

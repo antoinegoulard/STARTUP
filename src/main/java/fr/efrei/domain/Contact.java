@@ -15,23 +15,12 @@ public class Contact {
         return cellPhoneNo;
     }
 
-    public void setCellPhoneNo(int cellPhoneNo) {
-        this.cellPhoneNo = cellPhoneNo;
-    }
-
     public String getEmail() {
         return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public int getHomeNo() {
         return homeNo;
     }
 
-    public void setHomeNo(int homeNo) {
-        this.homeNo = homeNo;
-    }
 }
