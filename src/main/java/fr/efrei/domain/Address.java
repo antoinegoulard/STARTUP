@@ -5,9 +5,9 @@ public class Address {
     private String street_address;
     private String postal_address;
 
-    public Address(String street_address, String postal_address) {
-        this.street_address = street_address;
-        this.postal_address = postal_address;
+    public Address(Builder builder) {
+        this.street_address = builder.street_address;
+        this.postal_address = builder.postal_address;
     }
 
     public String getStreet_address() {
@@ -15,15 +15,6 @@ public class Address {
     }
     public String getPostal_address() {
         return postal_address;
-    }
-
-    public Builder setStreet_address(String street_address) {
-        this.street_address = street_address;
-        return this;
-    }
-    public Builder setPostal_address(String postal_address) {
-        this.postal_address = postal_address;
-        return this;
     }
 
 
@@ -34,15 +25,30 @@ public class Address {
                 ", postal_address='" + postal_address + '\'' +
                 '}';
     }
+    public static class Builder{
+        private String street_address;
+        private String postal_address;
 
-    private Builder copy(Address address) {
-        this.street_address = address.street_address;
-        this.postal_address = address.postal_address;
-        return this;
+        public Builder setStreet_address(String street_address) {
+            this.street_address = street_address;
+            return this;
+        }
+        public Builder setPostal_address(String postal_address) {
+            this.postal_address = postal_address;
+            return this;
+        }
+
+
+        private Builder copy(Address address) {
+            this.street_address = address.street_address;
+            this.postal_address = address.postal_address;
+            return this;
+        }
+
+        public Address build() {
+            return new Address(this);
+        }
     }
 
-    public Address build() {
-        return new Address(this);
-    }
 }
 
