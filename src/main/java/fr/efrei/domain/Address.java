@@ -20,8 +20,7 @@ public class Address {
 
     @Override
     public String toString() {
-        return "Address{" +
-                "street_address='" + street_address + '\'' +
+        return  "street_address='" + street_address + '\'' +
                 ", postal_address='" + postal_address + '\'' +
                 '}';
     }

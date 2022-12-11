@@ -1,0 +1,82 @@
+Index: src/main/java/fr/efrei/views/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package fr.efrei.views;\r\n\r\nimport java.util.Scanner;\r\nimport java.io.*;\r\n\r\npublic class Main {\r\n\r\n    public static void main(String[] args) throws IOException {\r\n\r\n        System.out.println(\"----------- STARTUP MENU : -----------\\n\");\r\n        System.out.println(\"TAP 1: ADD AN EMPLOYEE\\n\");\r\n        System.out.println(\"TAP 2: REMOVE AN EMPLOYEE\\n\");\r\n        System.out.println(\"TAP 3: UPDATE EMPLOYEE'S INFORMATIONS\\n\");\r\n        System.out.println(\"TAP 4: DISPLAY THE EMPLOYEE'S LIST\\n\");\r\n        System.out.println(\"Enter an option : \");\r\n        Scanner myObj = new Scanner(System.in);\r\n        int option = myObj.nextInt();\r\n\r\n        FileWriter fw=new FileWriter(\"Employees.txt\");\r\n        String str = \"J'aime Salah et Antoine\";\r\n        for (int i = 0; i < str.length(); i++)\r\n            fw.write(str.charAt(i));\r\n\r\n        System.out.println(\"Writing successful\");\r\n        //close the file\r\n        fw.close();\r\n\r\n\r\n        switch (option) {\r\n            case 1:\r\n                System.out.println(\"ADD AN EMPLOYEE\\n\");\r\n                break;\r\n            case 2:\r\n                System.out.println(\"REMOVE AN EMPLOYEE\\n\");\r\n                break;\r\n            case 3:\r\n                System.out.println(\"UPDATE EMPLOYEE'S INFORMATIONS\\n\");\r\n                break;\r\n            case 4:\r\n                System.out.println(\"DISPLAY THE EMPLOYEE'S LIST\\n\");\r\n                break;\r\n\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/fr/efrei/views/Main.java b/src/main/java/fr/efrei/views/Main.java
+--- a/src/main/java/fr/efrei/views/Main.java	
++++ b/src/main/java/fr/efrei/views/Main.java	
+@@ -16,19 +16,22 @@
+         Scanner myObj = new Scanner(System.in);
+         int option = myObj.nextInt();
+ 
+-        FileWriter fw=new FileWriter("Employees.txt");
+-        String str = "J'aime Salah et Antoine";
+-        for (int i = 0; i < str.length(); i++)
+-            fw.write(str.charAt(i));
++
++
++        switch (option) {
++            case 1:
++                System.out.println("ADD AN EMPLOYEE\n");
++
++                //---------------------
++                FileWriter fw=new FileWriter("Employees.txt");
++                String str = "J'aime Salah et Antoine";
++                for (int i = 0; i < str.length(); i++)
++                    fw.write(str.charAt(i));
+ 
+-        System.out.println("Writing successful");
+-        //close the file
+-        fw.close();
+-
+-
+-        switch (option) {
+-            case 1:
+-                System.out.println("ADD AN EMPLOYEE\n");
++                System.out.println("Writing successful");
++                //close the file
++                fw.close();
++                //--------------------------
+                 break;
+             case 2:
+                 System.out.println("REMOVE AN EMPLOYEE\n");
+Index: src/main/java/fr/efrei/domain/Employee.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package fr.efrei.domain;\r\n\r\nimport java.util.Locale;\r\n\r\npublic class Employee  {\r\n    private int employeeNo;\r\n   private String name;\r\n\r\n\r\n    public Employee(Builder builder) {\r\n        this.employeeNo = builder.employeeNo;\r\n        this.name = builder.name;\r\n    }\r\n\r\n    public int getEmployeeNo() {\r\n        return employeeNo;\r\n    }\r\n\r\n    public String getName() {\r\n        return name;\r\n    }\r\n\r\n    @Override\r\n    public String toString() {\r\n        return \"Employee{\" +\r\n                \"employeeNo=\" + employeeNo +\r\n                \", name='\" + name + '\\'' +\r\n                '}';\r\n    }\r\n    public static class Builder{\r\n        private int employeeNo;\r\n        private String name;\r\n\r\n        public Builder setEmployeeNo(int employeeNo) {\r\n            this.employeeNo = employeeNo;\r\n            return this;\r\n        }\r\n\r\n        public Builder setName(String name) {\r\n            this.name = name;\r\n            return this;\r\n        }\r\n\r\n        public Builder copy (Employee emp){\r\n            this.employeeNo = emp.employeeNo;\r\n            this.name = emp.name;\r\n            return this;\r\n        }\r\n        public Employee build(){\r\n            return new Employee(this);\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/fr/efrei/domain/Employee.java b/src/main/java/fr/efrei/domain/Employee.java
+--- a/src/main/java/fr/efrei/domain/Employee.java	
++++ b/src/main/java/fr/efrei/domain/Employee.java	
+@@ -4,7 +4,12 @@
+ 
+ public class Employee  {
+     private int employeeNo;
+-   private String name;
++    private String name;
++    private Address adress ;
++    private Contact contact1;
++    private Identity identity;
++    private Job job;
++    private DemInfo deminfo;
+ 
+ 
+     public Employee(Builder builder) {
+Index: Employees.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>J'aime Salah et Antoine
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Employees.txt b/Employees.txt
+--- a/Employees.txt	
++++ b/Employees.txt	
+@@ -1,1 +1,0 @@
+-J'aime Salah et Antoine
+\ No newline at end of file

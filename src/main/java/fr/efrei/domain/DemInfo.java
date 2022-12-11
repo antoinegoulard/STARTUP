@@ -22,6 +22,12 @@ public class DemInfo {
         return race;
     }
 
+    @Override
+    public String toString() {
+        return  "race='" + race + '\'' +
+                ", gender='" + gender + '\'' +
+                '}';
+    }
 
     public String getGender() {
         return gender;

@@ -25,6 +25,13 @@ public class Contact {
         return cellPhoneNo;
     }
 
+    @Override
+    public String toString() {
+        return  "cellPhoneNo=" + cellPhoneNo +
+                ", email='" + email + '\'' +
+                ", homeNo=" + homeNo +
+                '}';
+    }
 
     public String getEmail() {
         return email;

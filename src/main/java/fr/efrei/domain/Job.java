@@ -26,10 +26,9 @@ public class Job {
 
     @Override
     public String toString() {
-        return "Job{" +
-                "title='" + title + '\'' +
-                ", positionCode='" + positionCode + '\'' +
-                ", statue=" + statue +
+        return "job title='" + title + '\'' +
+                ", job_positionCode='" + positionCode + '\'' +
+                ", job_statue=" + statue +
                 '}';
     }
 

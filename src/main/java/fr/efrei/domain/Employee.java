@@ -39,6 +39,31 @@ public class Employee  {
         return name;
     }
 
+<<<<<<< HEAD
+=======
+    public Address getAddress() { return address; }
+
+    public Contact getContact() { return contact; }
+
+    public Identity getIdentity() { return identity; }
+
+    public Job getJob() { return job; }
+
+    public DemInfo getDemInfo() { return demInfo; }
+
+    @Override
+    public String toString() {
+        return  "employeeNo=" + employeeNo +
+                ", name='" + name + '\'' +
+                ", address=" + adress +
+                ", contact1=" + contact1 +
+                ", identity=" + identity +
+                ", job=" + job +
+                ", deminfo=" + deminfo +
+                '}';
+    }
+
+>>>>>>> b8225e9eed6b223064e698b263600bf78fc392f2
     public static class Builder{
         private int employeeNo;
         private String name;
