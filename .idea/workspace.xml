@@ -4,16 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e161228f-91c8-46d2-9fbd-149cb10c2883" name="Changes" comment="class">
-      <change afterPath="$PROJECT_DIR$/src/main/java/fr/efrei/utils/Helper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/fr/efrei/views/Main.java" afterDir="false" />
+    <list default="true" id="21f3cf21-29ce-4846-8683-884e203b91af" name="Changes" comment="salah">
+      <change afterPath="$PROJECT_DIR$/src/main/java/fr/efrei/repository/IIdentityRpository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/fr/efrei/repository/IRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/efrei/domain/Address.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Contact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/efrei/domain/Contact.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Demographic_Information.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/efrei/domain/Demographic_Information.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/efrei/domain/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Identity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/efrei/domain/Identity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/efrei/repository/IdentityRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/efrei/repository/IdentityRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/efrei/util/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/efrei/util/Helper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,15 +20,18 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2IPNSrzOvPGpME9vdWAMhxKNsvq" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -54,13 +53,15 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e161228f-91c8-46d2-9fbd-149cb10c2883" name="Changes" comment="" />
+      <changelist id="21f3cf21-29ce-4846-8683-884e203b91af" name="Changes" comment="salah" />
       <created>1670079261285</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1670079261285</updated>
       <workItem from="1670079263129" duration="2539000" />
       <workItem from="1670083913581" duration="992000" />
+      <workItem from="1670749665674" duration="1968000" />
+      <workItem from="1670752727290" duration="612000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1670079288928</created>

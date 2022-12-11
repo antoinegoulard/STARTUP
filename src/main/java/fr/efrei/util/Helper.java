@@ -31,9 +31,9 @@ public class Helper
         return id;
     }
 
-    public static boolean isNullOrEmpty(int s)
+    public static boolean isNullOrEmpty(String s)
     {
-        if ((s == 0)||(s.isEmpty()))
+        if ((s == true)||(s.isEmpty()))
         {
             return true;
         }
@@ -42,16 +42,7 @@ public class Helper
             return false;
         }
     }
-    public static boolean isNullOrEmpty(boolean s)
-    {
-        if ((s == null)||(s.isEmpty()))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+
     }
-}
+
 
