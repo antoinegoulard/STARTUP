@@ -72,9 +72,39 @@ public class Employee  {
             return this;
         }
 
+        public Builder setAddress(Address address) {
+            this.address = address;
+            return this;
+        }
+
+        public Builder setContact(Contact contact) {
+            this.contact = contact;
+            return this;
+        }
+
+        public Builder setIdentity(Identity identity) {
+            this.identity = identity;
+            return this;
+        }
+
+        public Builder setJob(Job job) {
+            this.job = job;
+            return this;
+        }
+
+        public Builder setDemInfo(DemInfo demInfo) {
+            this.demInfo = demInfo;
+            return this;
+        }
+
         public Builder copy (Employee emp){
             this.employeeNo = emp.employeeNo;
             this.name = emp.name;
+            this.address = emp.address;
+            this.contact = emp.contact;
+            this.identity = emp.identity;
+            this.job = emp.job;
+            this.demInfo = emp.demInfo;
             return this;
         }
         public Employee build(){

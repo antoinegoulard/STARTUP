@@ -19,11 +19,11 @@ public class EmployeeFactory {
                 Helper.isNullOrEmpty(job.getPositionCode()) ||
                 Helper.isNullOrEmpty(job.getTitle()) ||
                 Helper.isNullOrEmpty(demInfo.getRace()) ||
-                Helper.isNullOrEmpty(demInfo.getGender()))
+                Helper.isNullOrEmpty(demInfo.getGender())) {
             return null;
-        }
+    }
 
-        Employee employee = new Employee.Builder().setEmployeeNo(employeeNo).setName(name).build();
+        Employee employee = new Employee.Builder().setEmployeeNo(employeeNo).setName(name).setAddress(address).setContact(contact).setIdentity(identity).setJob(job).setDemInfo(demInfo).build();
         return employee;
     }
 }

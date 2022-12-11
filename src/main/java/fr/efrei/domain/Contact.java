@@ -12,14 +12,7 @@ public class Contact {
     }
 
 
-    @Override
-    public String toString() {
-        return "Contact{" +
-                "cellPhoneNo=" + cellPhoneNo +
-                ", email='" + email + '\'' +
-                ", homeNo=" + homeNo +
-                '}';
-    }
+
 
     public int getCellPhoneNo() {
         return cellPhoneNo;
