@@ -1,0 +1,40 @@
+Index: src/main/java/fr/efrei/views/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package fr.efrei.views;\r\n\r\nimport java.util.Scanner;\r\n\r\npublic class Main {\r\n\r\n    public static void main(String[] args) {\r\n\r\n        System.out.println(\"----------- STARTUP MENU : -----------\\n\");\r\n        System.out.println(\"TAP 1: ADD AN EMPLOYEE\\n\");\r\n        System.out.println(\"TAP 2: REMOVE AN EMPLOYEE\\n\");\r\n        System.out.println(\"TAP 3: UPDATE EMPLOYEE'S INFORMATIONS\\n\");\r\n        System.out.println(\"TAP 4: DISPLAY THE EMPLOYEE'S LIST\\n\");\r\n        System.out.println(\"Enter an option : \");\r\n        Scanner myObj = new Scanner(System.in);\r\n        int option = myObj.nextInt();\r\n\r\n        switch (option) {\r\n            case 1:\r\n                System.out.println(\"ADD AN EMPLOYEE\\n\");\r\n                break;\r\n            case 2:\r\n                System.out.println(\"REMOVE AN EMPLOYEE\\n\");\r\n                break;\r\n            case 3:\r\n                System.out.println(\"UPDATE EMPLOYEE'S INFORMATIONS\\n\");\r\n                break;\r\n            case 4:\r\n                System.out.println(\"DISPLAY THE EMPLOYEE'S LIST\\n\");\r\n                break;\r\n\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/fr/efrei/views/Main.java b/src/main/java/fr/efrei/views/Main.java
+--- a/src/main/java/fr/efrei/views/Main.java	
++++ b/src/main/java/fr/efrei/views/Main.java	
+@@ -1,10 +1,11 @@
+ package fr.efrei.views;
+ 
+ import java.util.Scanner;
++import java.io.*;
+ 
+ public class Main {
+ 
+-    public static void main(String[] args) {
++    public static void main(String[] args) throws IOException {
+ 
+         System.out.println("----------- STARTUP MENU : -----------\n");
+         System.out.println("TAP 1: ADD AN EMPLOYEE\n");
+@@ -15,6 +16,16 @@
+         Scanner myObj = new Scanner(System.in);
+         int option = myObj.nextInt();
+ 
++        FileWriter fw=new FileWriter("Employees.txt");
++        String str = "J'aime Salah et Antoine";
++        for (int i = 0; i < str.length(); i++)
++            fw.write(str.charAt(i));
++
++        System.out.println("Writing successful");
++        //close the file
++        fw.close();
++
++
+         switch (option) {
+             case 1:
+                 System.out.println("ADD AN EMPLOYEE\n");
