@@ -42,11 +42,16 @@ public class Employee  {
 
     @Override
     public String toString() {
-        return "Employee{" +
-                "employeeNo=" + employeeNo +
+        return  "employeeNo=" + employeeNo +
                 ", name='" + name + '\'' +
+                ", address=" + adress +
+                ", contact1=" + contact1 +
+                ", identity=" + identity +
+                ", job=" + job +
+                ", deminfo=" + deminfo +
                 '}';
     }
+
     public static class Builder{
         private int employeeNo;
         private String name;

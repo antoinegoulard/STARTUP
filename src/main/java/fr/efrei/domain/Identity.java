@@ -21,9 +21,8 @@ public class Identity {
 
     @Override
     public String toString() {
-        return "Identity{" +
-                "passport='" + passport + '\'' +
-                ", idNo=" + idNo +
+        return "id_passport='" + passport + '\'' +
+                ", id_No=" + idNo +
                 '}';
     }
     public static class Builder{
