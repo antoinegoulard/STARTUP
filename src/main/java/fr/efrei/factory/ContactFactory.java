@@ -8,7 +8,7 @@ public class ContactFactory {
         if (Helper.isNullOrEmpty(cellPhoneNo)|| Helper.isNullOrEmpty(email)||Helper.isNullOrEmpty(homeNo)){
             return null;
         }
-        Contact cntc = new Contact.Builder().setCellPhoneNo(cellPhoneNo).setEmail(email).setHomeNo(homeNo).build();
-        return cntc;
+        Contact contact = new Contact.Builder().setCellPhoneNo(cellPhoneNo).setEmail(email).setHomeNo(homeNo).build();
+        return contact;
     }
 }

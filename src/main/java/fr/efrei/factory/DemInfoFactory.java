@@ -9,7 +9,7 @@ public class DemInfoFactory {
             return null;
         }
 
-        DemInfo di = new DemInfo.Builder().setGender(gender).setRace(race).build();
-        return di;
+        DemInfo deminfo = new DemInfo.Builder().setGender(gender).setRace(race).build();
+        return deminfo;
     }
 }
