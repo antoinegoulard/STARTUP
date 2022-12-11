@@ -30,5 +30,14 @@ public class Helper
         String id = new String ("");
         return id;
     }
+
+
+    public static write() {
+
+    }
+
+    public static read() {
+
+    }
 }
 

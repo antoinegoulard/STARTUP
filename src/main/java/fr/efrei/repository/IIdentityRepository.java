@@ -5,5 +5,4 @@ import java.util.*;
 public interface IIdentityRepository extends IRepository<Identity, String> {
     public List<Identity> getAll();
     public Identity getIndex(int i);
-
 }
