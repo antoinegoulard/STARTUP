@@ -16,19 +16,22 @@ public class Main {
         Scanner myObj = new Scanner(System.in);
         int option = myObj.nextInt();
 
-        FileWriter fw=new FileWriter("Employees.txt");
-        String str = "J'aime Salah et Antoine";
-        for (int i = 0; i < str.length(); i++)
-            fw.write(str.charAt(i));
-
-        System.out.println("Writing successful");
-        //close the file
-        fw.close();
 
 
         switch (option) {
             case 1:
                 System.out.println("ADD AN EMPLOYEE\n");
+
+                //---------------------
+                FileWriter fw=new FileWriter("Employees.txt");
+                String str = "J'aime Salah et Antoine";
+                for (int i = 0; i < str.length(); i++)
+                    fw.write(str.charAt(i));
+
+                System.out.println("Writing successful");
+                //close the file
+                fw.close();
+                //--------------------------
                 break;
             case 2:
                 System.out.println("REMOVE AN EMPLOYEE\n");
