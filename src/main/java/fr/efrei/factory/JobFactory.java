@@ -5,7 +5,7 @@ import fr.efrei.util.Helper;
 
 public class JobFactory {
     public static Job createJob(String title,String positionCod, boolean statue){
-        if (Helper.isNullOrEmpty(title)||Helper.isNullOrEmpty(positionCod) || Helper.isNullOrEmpty(statue)){
+        if (Helper.isNullOrEmpty(title)||Helper.isNullOrEmpty(positionCod) || statue){
             return null;
         }
 
