@@ -5,6 +5,11 @@ import java.util.Locale;
 public class Employee  {
     private int employeeNo;
    private String name;
+   private Address address;
+   private Contact contact;
+   private DemInfo demInfo;
+   private Job job;
+   private Identity identity;
 
 
     public Employee(Builder builder) {
