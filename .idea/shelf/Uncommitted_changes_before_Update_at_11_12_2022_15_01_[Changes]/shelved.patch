@@ -1,0 +1,463 @@
+Index: src/main/java/fr/efrei/factory/EmployeeFactory.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package fr.efrei.factory;\n\nimport fr.efrei.domain.Employee;\nimport fr.efrei.util.Helper;\n\npublic class EmployeeFactory {\n    public static Employee createEmployee(int employeeNo, String name){\n        if (Helper.isNullOrEmpty(employeeNo) ||Helper.isNullOrEmpty(name)){\n            return null;\n        }\n\n        Employee employee = new Employee.Builder().setEmployeeNo(employeeNo).setName(name).build();\n        return employee;\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/fr/efrei/factory/EmployeeFactory.java b/src/main/java/fr/efrei/factory/EmployeeFactory.java
+--- a/src/main/java/fr/efrei/factory/EmployeeFactory.java	(revision a41fd046e397eb303644d81be07f323dfe50bb4a)
++++ b/src/main/java/fr/efrei/factory/EmployeeFactory.java	(date 1670763609360)
+@@ -2,10 +2,11 @@
+ 
+ import fr.efrei.domain.Employee;
+ import fr.efrei.util.Helper;
++import static fr.efrei.util.Helper.isZero;
+ 
+ public class EmployeeFactory {
+     public static Employee createEmployee(int employeeNo, String name){
+-        if (Helper.isNullOrEmpty(employeeNo) ||Helper.isNullOrEmpty(name)){
++        if (isZero(employeeNo) ||Helper.isNullOrEmpty(name)){
+             return null;
+         }
+ 
+Index: src/main/java/fr/efrei/factory/IdentityFactory.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package fr.efrei.factory;\n\nimport fr.efrei.domain.Identity;\nimport fr.efrei.util.Helper;\n\npublic class IdentityFactory {\n    public static Identity createIdentity( String passport,int idNo ){\n        if (Helper.isNullOrEmpty(passport) || Helper.isNullOrEmpty(idNo)){\n            return null;\n        }\n        Identity id = new Identity.Builder().setIdNo(idNo).setPassport(passport).build();\n        return id;\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/fr/efrei/factory/IdentityFactory.java b/src/main/java/fr/efrei/factory/IdentityFactory.java
+--- a/src/main/java/fr/efrei/factory/IdentityFactory.java	(revision a41fd046e397eb303644d81be07f323dfe50bb4a)
++++ b/src/main/java/fr/efrei/factory/IdentityFactory.java	(date 1670763609361)
+@@ -5,7 +5,7 @@
+ 
+ public class IdentityFactory {
+     public static Identity createIdentity( String passport,int idNo ){
+-        if (Helper.isNullOrEmpty(passport) || Helper.isNullOrEmpty(idNo)){
++        if (Helper.isNullOrEmpty(passport) || Helper.isZero(idNo)){
+             return null;
+         }
+         Identity id = new Identity.Builder().setIdNo(idNo).setPassport(passport).build();
+Index: src/main/java/fr/efrei/repository/IdentityRepository.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package fr.efrei.repository;\nimport fr.efrei.domain.Identity;\nimport java.util.*;\n\npublic class IdentityRepository implements IIdentityRpository {\n    private static IdentityRepository repository = null;\n    private List<Identity> idDB = null;\n\n\n    private IdentityRepository() {\n        idDB = new ArrayList<Identity>();\n    }\n    private IdentityRepository getRepository() {\n        if (repository == null) {\n            return new IdentityRepository();\n        }\n        return repository;\n    }\n\n    @Override\n    public List<Identity> getAll() {\n        return idDB;\n    }\n\n    @Override\n    public Identity getIndex(int i) {\n        return idDB.get(i);\n    }\n\n\n    public Identity create(Identity id) {\n        boolean success = idDB.add(id);\n        if (success) {\n            return id;\n        } else {\n            return null;\n        }\n    }\n\n    @Override\n    public Identity read(String s) {\n        for (Identity i : idDB) {\n            if (i.getPassport().equals(s)) {\n                return i;\n            }\n\n        }\n        return null;\n    }\n\n    @Override\n    public Identity update(Identity id) {\n        Identity oldid = read(id.getPassport());\n        if (id != null) {\n            idDB.remove(oldid);\n            idDB.add(id);\n            return id;\n        }\n        return null;\n    }\n\n    @Override\n    public boolean delete(String o) {\n        Identity idDelete = read(o);\n        if (idDelete == null){\n            return false;\n        }\n        idDB.remove(idDelete);\n        return true;\n    }\n}\n\n\n\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/fr/efrei/repository/IdentityRepository.java b/src/main/java/fr/efrei/repository/IdentityRepository.java
+--- a/src/main/java/fr/efrei/repository/IdentityRepository.java	(revision a41fd046e397eb303644d81be07f323dfe50bb4a)
++++ b/src/main/java/fr/efrei/repository/IdentityRepository.java	(date 1670763620760)
+@@ -1,75 +1,4 @@
+ package fr.efrei.repository;
+-import fr.efrei.domain.Identity;
+-import java.util.*;
+-
+-public class IdentityRepository implements IIdentityRpository {
+-    private static IdentityRepository repository = null;
+-    private List<Identity> idDB = null;
+-
+-
+-    private IdentityRepository() {
+-        idDB = new ArrayList<Identity>();
+-    }
+-    private IdentityRepository getRepository() {
+-        if (repository == null) {
+-            return new IdentityRepository();
+-        }
+-        return repository;
+-    }
+-
+-    @Override
+-    public List<Identity> getAll() {
+-        return idDB;
+-    }
+-
+-    @Override
+-    public Identity getIndex(int i) {
+-        return idDB.get(i);
+-    }
+-
+-
+-    public Identity create(Identity id) {
+-        boolean success = idDB.add(id);
+-        if (success) {
+-            return id;
+-        } else {
+-            return null;
+-        }
+-    }
+-
+-    @Override
+-    public Identity read(String s) {
+-        for (Identity i : idDB) {
+-            if (i.getPassport().equals(s)) {
+-                return i;
+-            }
+-
+-        }
+-        return null;
+-    }
+-
+-    @Override
+-    public Identity update(Identity id) {
+-        Identity oldid = read(id.getPassport());
+-        if (id != null) {
+-            idDB.remove(oldid);
+-            idDB.add(id);
+-            return id;
+-        }
+-        return null;
+-    }
+ 
+-    @Override
+-    public boolean delete(String o) {
+-        Identity idDelete = read(o);
+-        if (idDelete == null){
+-            return false;
+-        }
+-        idDB.remove(idDelete);
+-        return true;
+-    }
++public class IdentityRepository {
+ }
+-
+-
+-
+-
+Index: src/main/java/fr/efrei/domain/DemInfo.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/fr/efrei/domain/DemInfo.java b/src/main/java/fr/efrei/domain/DemInfo.java
+new file mode 100644
+--- /dev/null	(date 1670763609356)
++++ b/src/main/java/fr/efrei/domain/DemInfo.java	(date 1670763609356)
+@@ -0,0 +1,46 @@
++package fr.efrei.domain;
++
++public class DemInfo {
++    private String race;
++    private String gender;
++
++    public DemInfo(Builder builder) {
++        this.race = builder.race;
++        this.gender = builder.gender;
++    }
++
++    public String getRace() {
++        return race;
++    }
++
++
++    public String getGender() {
++        return gender;
++    }
++
++
++    public static class Builder {
++        private String race;
++        private String gender;
++
++        public Builder setRace(String race) {
++            this.race = race;
++            return this;
++        }
++
++        public Builder setGender(String gender) {
++            this.gender = gender;
++            return this;
++        }
++
++        private Builder copy(DemInfo dm){
++            this.race = dm.race;
++            this.gender = dm.gender;
++            return this;
++        }
++        public DemInfo build(){
++            return new DemInfo(this);
++        }
++    }
++}
++
+Index: Employees.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Employees.txt b/Employees.txt
+--- a/Employees.txt	(revision a41fd046e397eb303644d81be07f323dfe50bb4a)
++++ b/Employees.txt	(date 1670763609355)
+@@ -1,0 +1,1 @@
++J'aime Salah et Antoine
+\ No newline at end of file
+Index: src/main/java/fr/efrei/factory/ContactFactory.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package fr.efrei.factory;\n\nimport fr.efrei.domain.Contact;\nimport fr.efrei.util.Helper;\n\npublic class ContactFactory {\n    public static Contact createContact( int cellPhoneNo, String email, int homeNo){\n        if (Helper.isNullOrEmpty(cellPhoneNo)|| Helper.isNullOrEmpty(email)||Helper.isNullOrEmpty(homeNo)){\n            return null;\n        }\n        Contact cntc = new Contact.Builder().setCellPhoneNo(cellPhoneNo).setEmail(email).setHomeNo(homeNo).build();\n        return cntc;\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/fr/efrei/factory/ContactFactory.java b/src/main/java/fr/efrei/factory/ContactFactory.java
+--- a/src/main/java/fr/efrei/factory/ContactFactory.java	(revision a41fd046e397eb303644d81be07f323dfe50bb4a)
++++ b/src/main/java/fr/efrei/factory/ContactFactory.java	(date 1670763609357)
+@@ -5,10 +5,10 @@
+ 
+ public class ContactFactory {
+     public static Contact createContact( int cellPhoneNo, String email, int homeNo){
+-        if (Helper.isNullOrEmpty(cellPhoneNo)|| Helper.isNullOrEmpty(email)||Helper.isNullOrEmpty(homeNo)){
++        if (Helper.isZero(cellPhoneNo)|| Helper.isNullOrEmpty(email)||Helper.isZero(homeNo)){
+             return null;
+         }
+-        Contact cntc = new Contact.Builder().setCellPhoneNo(cellPhoneNo).setEmail(email).setHomeNo(homeNo).build();
+-        return cntc;
++        Contact contact = new Contact.Builder().setCellPhoneNo(cellPhoneNo).setEmail(email).setHomeNo(homeNo).build();
++        return contact;
+     }
+ }
+Index: src/main/java/fr/efrei/util/Helper.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package fr.efrei.util;\n\npublic class Helper\n{\n    public static boolean isNullOrEmpty(String s)\n    {\n        if ((s == null)||(s.isEmpty()))\n        {\n            return true;\n        }\n        else\n        {\n            return false;\n        }\n    }\n\n    public static boolean isZero(int s)\n    {\n        if ((s == 0))\n        {\n            return true;\n        }\n        else\n        {\n            return false;\n        }\n    }\n\n    public static String generateId() {\n        String id = new String (\"\");\n        return id;\n    }\n\n    public static boolean isNullOrEmpty(String s)\n    {\n        if ((s == true)||(s.isEmpty()))\n        {\n            return true;\n        }\n        else\n        {\n            return false;\n        }\n    }\n\n    }\n\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/fr/efrei/util/Helper.java b/src/main/java/fr/efrei/util/Helper.java
+--- a/src/main/java/fr/efrei/util/Helper.java	(revision a41fd046e397eb303644d81be07f323dfe50bb4a)
++++ b/src/main/java/fr/efrei/util/Helper.java	(date 1670763620308)
+@@ -31,10 +31,21 @@
+         return id;
+     }
+ 
+-    public static boolean isNullOrEmpty(String s)
++    public static boolean isNullOrEmpty(int s)
+     {
+-        if ((s == true)||(s.isEmpty()))
++        if ((s == 0)||(s.isEmpty()))
+         {
++            return true;
++        }
++        else
++        {
++            return false;
++        }
++    }
++    public static boolean isNullOrEmpty(boolean s)
++    {
++        if ((s == null)||(s.isEmpty()))
++        {
+             return true;
+         }
+         else
+@@ -42,7 +53,5 @@
+             return false;
+         }
+     }
+-
+-    }
++}
+ 
+-
+Index: src/main/java/fr/efrei/views/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package fr.efrei.views;\n\nimport java.util.Scanner;\n\npublic class Main {\n\n    public static void main(String[] args) {\n\n        System.out.println(\"----------- STARTUP MENU : -----------\\n\");\n        System.out.println(\"TAP 1: ADD AN EMPLOYEE\\n\");\n        System.out.println(\"TAP 2: REMOVE AN EMPLOYEE\\n\");\n        System.out.println(\"TAP 3: UPDATE EMPLOYEE'S INFORMATIONS\\n\");\n        System.out.println(\"TAP 4: DISPLAY THE EMPLOYEE'S LIST\\n\");\n        System.out.println(\"Enter an option : \");\n        Scanner myObj = new Scanner(System.in);\n        int option = myObj.nextInt();\n\n        switch (option) {\n            case 1:\n                System.out.println(\"ADD AN EMPLOYEE\\n\");\n                break;\n            case 2:\n                System.out.println(\"REMOVE AN EMPLOYEE\\n\");\n                break;\n            case 3:\n                System.out.println(\"UPDATE EMPLOYEE'S INFORMATIONS\\n\");\n                break;\n            case 4:\n                System.out.println(\"DISPLAY THE EMPLOYEE'S LIST\\n\");\n                break;\n\n        }\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/fr/efrei/views/Main.java b/src/main/java/fr/efrei/views/Main.java
+--- a/src/main/java/fr/efrei/views/Main.java	(revision a41fd046e397eb303644d81be07f323dfe50bb4a)
++++ b/src/main/java/fr/efrei/views/Main.java	(date 1670763609362)
+@@ -1,20 +1,31 @@
+ package fr.efrei.views;
+ 
+ import java.util.Scanner;
++import java.io.*;
+ 
+ public class Main {
+ 
+-    public static void main(String[] args) {
++    public static void main(String[] args) throws IOException {
+ 
+         System.out.println("----------- STARTUP MENU : -----------\n");
+-        System.out.println("TAP 1: ADD AN EMPLOYEE\n");
+-        System.out.println("TAP 2: REMOVE AN EMPLOYEE\n");
+-        System.out.println("TAP 3: UPDATE EMPLOYEE'S INFORMATIONS\n");
+-        System.out.println("TAP 4: DISPLAY THE EMPLOYEE'S LIST\n");
++        System.out.println("TAP 1: ADD AN EMPLOYEE");
++        System.out.println("TAP 2: REMOVE AN EMPLOYEE");
++        System.out.println("TAP 3: UPDATE EMPLOYEE'S INFORMATIONS");
++        System.out.println("TAP 4: DISPLAY THE EMPLOYEE'S LIST");
+         System.out.println("Enter an option : ");
+         Scanner myObj = new Scanner(System.in);
+         int option = myObj.nextInt();
+ 
++        FileWriter fw=new FileWriter("Employees.txt");
++        String str = "J'aime Salah et Antoine";
++        for (int i = 0; i < str.length(); i++)
++            fw.write(str.charAt(i));
++
++        System.out.println("Writing successful");
++        //close the file
++        fw.close();
++
++
+         switch (option) {
+             case 1:
+                 System.out.println("ADD AN EMPLOYEE\n");
+Index: src/main/java/fr/efrei/domain/Contact.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package fr.efrei.domain;\n\npublic class Contact {\n    private int cellPhoneNo;\n    private String email;\n    private int homeNo;\n\n    public Contact(Builder builder) {\n        this.cellPhoneNo = builder.cellPhoneNo;\n        this.email = builder.email;\n        this.homeNo = builder.homeNo;\n    }\n\n    public int getCellPhoneNo() {\n        return cellPhoneNo;\n    }\n\n\n    public String getEmail() {\n        return email;\n    }\n\n\n    public int getHomeNo() {\n        return homeNo;\n    }\n\n\n    public static class Builder {\n        private int cellPhoneNo;\n        private String email;\n        private int homeNo;\n\n        public Builder setCellPhoneNo(int cellPhoneNo) {\n            this.cellPhoneNo = cellPhoneNo;\n            return this;\n        }\n\n        public Builder setEmail(String email) {\n            this.email = email;\n            return this;\n        }\n\n        public Builder setHomeNo(int homeNo) {\n            this.homeNo = homeNo;\n            return this;\n        }\n        private Builder copy(Contact cnt){\n            this.homeNo = cnt.homeNo;\n            this.email = cnt.email;\n            this.cellPhoneNo = cnt.cellPhoneNo;\n            return this;\n        }\n        public Contact build(){\n            return new Contact(this);\n        }\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/fr/efrei/domain/Contact.java b/src/main/java/fr/efrei/domain/Contact.java
+--- a/src/main/java/fr/efrei/domain/Contact.java	(revision a41fd046e397eb303644d81be07f323dfe50bb4a)
++++ b/src/main/java/fr/efrei/domain/Contact.java	(date 1670763609356)
+@@ -5,7 +5,7 @@
+     private String email;
+     private int homeNo;
+ 
+-    public Contact(Builder builder) {
++    public Contact(Contact.Builder builder) {
+         this.cellPhoneNo = builder.cellPhoneNo;
+         this.email = builder.email;
+         this.homeNo = builder.homeNo;
+@@ -31,21 +31,21 @@
+         private String email;
+         private int homeNo;
+ 
+-        public Builder setCellPhoneNo(int cellPhoneNo) {
++        public Contact.Builder setCellPhoneNo(int cellPhoneNo) {
+             this.cellPhoneNo = cellPhoneNo;
+             return this;
+         }
+ 
+-        public Builder setEmail(String email) {
++        public Contact.Builder setEmail(String email) {
+             this.email = email;
+             return this;
+         }
+ 
+-        public Builder setHomeNo(int homeNo) {
++        public Contact.Builder setHomeNo(int homeNo) {
+             this.homeNo = homeNo;
+             return this;
+         }
+-        private Builder copy(Contact cnt){
++        private Contact.Builder copy(Contact cnt){
+             this.homeNo = cnt.homeNo;
+             this.email = cnt.email;
+             this.cellPhoneNo = cnt.cellPhoneNo;
+Index: src/main/java/fr/efrei/factory/DemInfoFactory.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package fr.efrei.factory;\n\nimport fr.efrei.domain.DemInfo;\nimport fr.efrei.util.Helper;\n\npublic class DemInfoFactory {\n    public static DemInfo createDemInfo(String race, String gender){\n        if (Helper.isNullOrEmpty(race)|| Helper.isNullOrEmpty(gender)){\n            return null;\n        }\n\n        DemInfo di = new DemInfo.Builder().setGender(gender).setRace(race).build();\n        return di;\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/fr/efrei/factory/DemInfoFactory.java b/src/main/java/fr/efrei/factory/DemInfoFactory.java
+--- a/src/main/java/fr/efrei/factory/DemInfoFactory.java	(revision a41fd046e397eb303644d81be07f323dfe50bb4a)
++++ b/src/main/java/fr/efrei/factory/DemInfoFactory.java	(date 1670763609360)
+@@ -9,7 +9,7 @@
+             return null;
+         }
+ 
+-        DemInfo di = new DemInfo.Builder().setGender(gender).setRace(race).build();
+-        return di;
++        DemInfo deminfo = new DemInfo.Builder().setGender(gender).setRace(race).build();
++        return deminfo;
+     }
+ }
+Index: src/main/java/fr/efrei/repository/IRepository.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package fr.efrei.repository;\n\n    public interface IRepository<T, ID> {\n        T create(T t);\n        T read(ID id);\n        T update(T t);\n        boolean delete(ID id);\n    }\n\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/fr/efrei/repository/IRepository.java b/src/main/java/fr/efrei/repository/IRepository.java
+--- a/src/main/java/fr/efrei/repository/IRepository.java	(revision a41fd046e397eb303644d81be07f323dfe50bb4a)
++++ b/src/main/java/fr/efrei/repository/IRepository.java	(date 1670763609373)
+@@ -1,10 +1,19 @@
+ package fr.efrei.repository;
+ 
++<<<<<<< HEAD
+     public interface IRepository<T, ID> {
+         T create(T t);
+         T read(ID id);
+         T update(T t);
+         boolean delete(ID id);
+     }
++=======
++public interface IRepository<T, ID> {
++    T create(T t);
++    T read(ID id);
++    T update(T t);
++    boolean delete(ID id);
++}
++>>>>>>> origin/master
+ 
+ 
+Index: src/main/java/fr/efrei/repository/IIdentityRepository.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/fr/efrei/repository/IIdentityRepository.java b/src/main/java/fr/efrei/repository/IIdentityRepository.java
+new file mode 100644
+--- /dev/null	(date 1670763609361)
++++ b/src/main/java/fr/efrei/repository/IIdentityRepository.java	(date 1670763609361)
+@@ -0,0 +1,9 @@
++package fr.efrei.repository;
++import fr.efrei.domain.Identity;
++import java.util.*;
++
++public interface IIdentityRepository extends IRepository<Identity, String> {
++    public List<Identity> getAll();
++    public Identity getIndex(int i);
++
++}
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\n  <component name=\"MavenProjectsManager\">\n    <option name=\"originalFiles\">\n      <list>\n        <option value=\"$PROJECT_DIR$/pom.xml\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_18\" default=\"true\" project-jdk-name=\"openjdk-17\" project-jdk-type=\"JavaSDK\">\n    <output url=\"file://$PROJECT_DIR$/out\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision a41fd046e397eb303644d81be07f323dfe50bb4a)
++++ b/.idea/misc.xml	(date 1670753425105)
+@@ -8,7 +8,7 @@
+       </list>
+     </option>
+   </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_18" default="true" project-jdk-name="openjdk-17" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="openjdk-17" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: src/main/java/fr/efrei/factory/JobFactory.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package fr.efrei.factory;\n\nimport fr.efrei.domain.Job;\nimport fr.efrei.util.Helper;\n\npublic class JobFactory {\n    public static Job createJob(String title,String positionCod, boolean statue){\n        if (Helper.isNullOrEmpty(title)||Helper.isNullOrEmpty(positionCod) || Helper.isNullOrEmpty(statue)){\n            return null;\n        }\n\n\n        Job job = new Job.Builder().setTitle(title).setPositionCode(positionCod).setStatue(statue).build();\n        return job;\n\n    }\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/fr/efrei/factory/JobFactory.java b/src/main/java/fr/efrei/factory/JobFactory.java
+--- a/src/main/java/fr/efrei/factory/JobFactory.java	(revision a41fd046e397eb303644d81be07f323dfe50bb4a)
++++ b/src/main/java/fr/efrei/factory/JobFactory.java	(date 1670763609361)
+@@ -5,7 +5,7 @@
+ 
+ public class JobFactory {
+     public static Job createJob(String title,String positionCod, boolean statue){
+-        if (Helper.isNullOrEmpty(title)||Helper.isNullOrEmpty(positionCod) || Helper.isNullOrEmpty(statue)){
++        if (Helper.isNullOrEmpty(title)||Helper.isNullOrEmpty(positionCod) || statue){
+             return null;
+         }
+ 

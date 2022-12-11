@@ -1,0 +1,136 @@
+Index: src/main/java/fr/efrei/repository/IIdentityRpository.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package fr.efrei.repository;\nimport fr.efrei.domain.Identity;\nimport java.util.*;\npublic interface IIdentityRpository extends IRepository {\n    public List<Identity> getAll();\n    public Identity getIndex(int i);\n\n    Identity read(String s);\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/fr/efrei/repository/IIdentityRpository.java b/src/main/java/fr/efrei/repository/IIdentityRpository.java
+--- a/src/main/java/fr/efrei/repository/IIdentityRpository.java	(revision ae3d4fa501eed07f296c1f15fb295a4ffefc28bd)
++++ b/src/main/java/fr/efrei/repository/IIdentityRpository.java	(date 1670753799750)
+@@ -1,9 +1,8 @@
+ package fr.efrei.repository;
+ import fr.efrei.domain.Identity;
+ import java.util.*;
+-public interface IIdentityRpository extends IRepository {
++public interface IIdentityRpository extends IRepository<Identity, String> {
+     public List<Identity> getAll();
+     public Identity getIndex(int i);
+ 
+-    Identity read(String s);
+ }
+Index: src/main/java/fr/efrei/util/Helper.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package fr.efrei.util;\n\npublic class Helper\n{\n    public static boolean isNullOrEmpty(String s)\n    {\n        if ((s == null)||(s.isEmpty()))\n        {\n            return true;\n        }\n        else\n        {\n            return false;\n        }\n    }\n\n    public static boolean isZero(int s)\n    {\n        if ((s == 0))\n        {\n            return true;\n        }\n        else\n        {\n            return false;\n        }\n    }\n\n    public static String generateId() {\n        String id = new String (\"\");\n        return id;\n    }\n\n    public static boolean isNullOrEmpty(String s)\n    {\n        if ((s == true)||(s.isEmpty()))\n        {\n            return true;\n        }\n        else\n        {\n            return false;\n        }\n    }\n\n    }\n\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/fr/efrei/util/Helper.java b/src/main/java/fr/efrei/util/Helper.java
+--- a/src/main/java/fr/efrei/util/Helper.java	(revision ae3d4fa501eed07f296c1f15fb295a4ffefc28bd)
++++ b/src/main/java/fr/efrei/util/Helper.java	(date 1670754728626)
+@@ -2,17 +2,6 @@
+ 
+ public class Helper
+ {
+-    public static boolean isNullOrEmpty(String s)
+-    {
+-        if ((s == null)||(s.isEmpty()))
+-        {
+-            return true;
+-        }
+-        else
+-        {
+-            return false;
+-        }
+-    }
+ 
+     public static boolean isZero(int s)
+     {
+@@ -33,12 +22,11 @@
+ 
+     public static boolean isNullOrEmpty(String s)
+     {
+-        if ((s == true)||(s.isEmpty()))
+-        {
++        if (s == true) {
+             return true;
+-        }
+-        else
+-        {
++        } else if (s.isEmpty()) {
++            return true;
++        } else {
+             return false;
+         }
+     }
+Index: src/main/java/fr/efrei/repository/EmployeeRepository.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package fr.efrei.repository;\n\npublic class EmployeeRepository {\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/fr/efrei/repository/EmployeeRepository.java b/src/main/java/fr/efrei/repository/EmployeeRepository.java
+--- a/src/main/java/fr/efrei/repository/EmployeeRepository.java	(revision ae3d4fa501eed07f296c1f15fb295a4ffefc28bd)
++++ b/src/main/java/fr/efrei/repository/EmployeeRepository.java	(date 1670754728619)
+@@ -1,4 +1,13 @@
+ package fr.efrei.repository;
++import fr.efrei.domain.Employee;
++import java.util.*;
++
++public class EmployeeRepository  implements IEmployeeRepositor{
++    private static EmployeeRepository repository = null;
++    private List<EmployeeRepository> emDB = null;
+ 
+-public class EmployeeRepository {
++    private EmployeeRepository(){
++        emDB = new ArrayList<Employee>();
++    }
++
+ }
+Index: src/main/java/fr/efrei/views/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package fr.efrei.views;\n\npublic class Main {\n    public static void main(String[] args) {\n\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/fr/efrei/views/Main.java b/src/main/java/fr/efrei/views/Main.java
+--- a/src/main/java/fr/efrei/views/Main.java	(revision ae3d4fa501eed07f296c1f15fb295a4ffefc28bd)
++++ b/src/main/java/fr/efrei/views/Main.java	(date 1670753398464)
+@@ -1,7 +1,34 @@
+ package fr.efrei.views;
+ 
++import java.util.Scanner;
++
+ public class Main {
++
+     public static void main(String[] args) {
+ 
++        System.out.println("----------- STARTUP MENU : -----------\n");
++        System.out.println("TAP 1: ADD AN EMPLOYEE\n");
++        System.out.println("TAP 2: REMOVE AN EMPLOYEE\n");
++        System.out.println("TAP 3: UPDATE EMPLOYEE'S INFORMATIONS\n");
++        System.out.println("TAP 4: DISPLAY THE EMPLOYEE'S LIST\n");
++        System.out.println("Enter an option : ");
++        Scanner myObj = new Scanner(System.in);
++        int option = myObj.nextInt();
++
++        switch (option) {
++            case 1:
++                System.out.println("ADD AN EMPLOYEE\n");
++                break;
++            case 2:
++                System.out.println("REMOVE AN EMPLOYEE\n");
++                break;
++            case 3:
++                System.out.println("UPDATE EMPLOYEE'S INFORMATIONS\n");
++                break;
++            case 4:
++                System.out.println("DISPLAY THE EMPLOYEE'S LIST\n");
++                break;
++
++        }
+     }
+ }

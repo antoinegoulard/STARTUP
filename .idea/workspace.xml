@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e161228f-91c8-46d2-9fbd-149cb10c2883" name="Changes" comment="class">
-      <change afterPath="$PROJECT_DIR$/src/main/java/fr/efrei/repository/IIdentityRepository.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/fr/efrei/repository/IRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/efrei/domain/Contact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/efrei/domain/Contact.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/efrei/domain/DemInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/efrei/domain/DemInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/efrei/domain/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/efrei/domain/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/efrei/domain/Job.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/efrei/domain/Job.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/efrei/repository/IdentityRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/efrei/repository/IdentityRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/efrei/views/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/efrei/views/Main.java" afterDir="false" />
     </list>
@@ -25,7 +28,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -36,6 +38,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "node.js.selected.package.tslint": "(autodetect)"
+  }
+}]]></component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="fr.efrei.views.Main" />

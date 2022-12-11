@@ -3,9 +3,28 @@ package fr.efrei.domain;
 import java.util.Locale;
 
 public class Employee  {
+    private String name;
     private int employeeNo;
-   private String name;
+    private Contact contact;
+   private Address address;
+   private Job job;
 
+   private DemInfo demInfo;
+   private Identity identity;
+
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", employeeNo=" + employeeNo +
+                ", contact=" + contact +
+                ", address=" + address +
+                ", job=" + job +
+                ", demInfo=" + demInfo +
+                ", identity=" + identity +
+                '}';
+    }
 
     public Employee(Builder builder) {
         this.employeeNo = builder.employeeNo;
@@ -20,13 +39,6 @@ public class Employee  {
         return name;
     }
 
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "employeeNo=" + employeeNo +
-                ", name='" + name + '\'' +
-                '}';
-    }
     public static class Builder{
         private int employeeNo;
         private String name;
