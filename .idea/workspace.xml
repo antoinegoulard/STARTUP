@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e161228f-91c8-46d2-9fbd-149cb10c2883" name="Changes" comment="class">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/src/main/java/fr/efrei/repository/IRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/efrei/domain/Contact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/efrei/domain/Contact.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/efrei/domain/DemInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/efrei/domain/DemInfo.java" afterDir="false" />
@@ -12,6 +13,14 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/efrei/domain/Job.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/efrei/domain/Job.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/efrei/repository/IdentityRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/efrei/repository/IdentityRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/efrei/views/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/efrei/views/Main.java" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_12_2022_11_37__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_12_2022_11_37__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_12_2022_11_37__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_12_2022_11_37__Changes_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_12_2022_11_40__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_12_2022_11_40__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_12_2022_14_00__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_12_2022_14_00__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_12_2022_14_00__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_12_2022_14_00__Changes_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/efrei/domain/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/efrei/domain/Employee.java" afterDir="false" />
+>>>>>>> f8ac8a13d3cff2c63b388bed1cd4ebc4dce627b0
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +153,25 @@
       <option name="project" value="LOCAL" />
       <updated>1670607688030</updated>
     </task>
+<<<<<<< HEAD
     <option name="localTasksCounter" value="11" />
+=======
+    <task id="LOCAL-00011" summary="class">
+      <created>1670762926903</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1670762926903</updated>
+    </task>
+    <task id="LOCAL-00012" summary="class">
+      <created>1670763683991</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1670763683991</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
+>>>>>>> f8ac8a13d3cff2c63b388bed1cd4ebc4dce627b0
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
