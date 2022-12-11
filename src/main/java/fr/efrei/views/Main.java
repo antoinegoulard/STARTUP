@@ -1,10 +1,11 @@
 package fr.efrei.views;
 
 import java.util.Scanner;
+import java.io.*;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         System.out.println("----------- STARTUP MENU : -----------\n");
         System.out.println("TAP 1: ADD AN EMPLOYEE\n");
@@ -14,6 +15,16 @@ public class Main {
         System.out.println("Enter an option : ");
         Scanner myObj = new Scanner(System.in);
         int option = myObj.nextInt();
+
+        FileWriter fw=new FileWriter("Employees.txt");
+        String str = "J'aime Salah et Antoine";
+        for (int i = 0; i < str.length(); i++)
+            fw.write(str.charAt(i));
+
+        System.out.println("Writing successful");
+        //close the file
+        fw.close();
+
 
         switch (option) {
             case 1:
