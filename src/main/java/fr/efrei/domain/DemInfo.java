@@ -10,13 +10,7 @@ public class DemInfo {
     }
 
 
-    @Override
-    public String toString() {
-        return "DemInfo{" +
-                "race='" + race + '\'' +
-                ", gender='" + gender + '\'' +
-                '}';
-    }
+
 
     public String getRace() {
         return race;

@@ -53,13 +53,14 @@ public class Employee  {
 
 
     public static class Builder{
+        public Address address;
+        public Contact contact;
+        public Identity identity;
+        public Job job;
+        public DemInfo demInfo;
         private int employeeNo;
         private String name;
-        private Address address;
-        private Contact contact;
-        private Identity identity;
-        private Job job;
-        private DemInfo demInfo;
+
 
 
         public Builder setEmployeeNo(int employeeNo) {

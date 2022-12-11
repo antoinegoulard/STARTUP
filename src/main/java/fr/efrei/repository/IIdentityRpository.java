@@ -6,4 +6,8 @@ public interface IIdentityRpository extends IRepository {
     public Identity getIndex(int i);
 
     Identity read(String s);
+
+    Identity update(Identity id);
+
+    boolean delete(String o);
 }
