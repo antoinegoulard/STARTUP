@@ -5,7 +5,7 @@ import fr.efrei.util.Helper;
 
 public class IdentityFactory {
     public static Identity createIdentity( String passport,int idNo ){
-        if (Helper.isNullOrEmpty(passport) || Helper.isNullOrEmpty(idNo)){
+        if (Helper.isNullOrEmpty(passport) || Helper.isZero(idNo)){
             return null;
         }
         Identity id = new Identity.Builder().setIdNo(idNo).setPassport(passport).build();

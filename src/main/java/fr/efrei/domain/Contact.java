@@ -5,7 +5,7 @@ public class Contact {
     private String email;
     private int homeNo;
 
-    public Contact(Builder builder) {
+    public Contact(Contact.Builder builder) {
         this.cellPhoneNo = builder.cellPhoneNo;
         this.email = builder.email;
         this.homeNo = builder.homeNo;
@@ -31,21 +31,21 @@ public class Contact {
         private String email;
         private int homeNo;
 
-        public Builder setCellPhoneNo(int cellPhoneNo) {
+        public Contact.Builder setCellPhoneNo(int cellPhoneNo) {
             this.cellPhoneNo = cellPhoneNo;
             return this;
         }
 
-        public Builder setEmail(String email) {
+        public Contact.Builder setEmail(String email) {
             this.email = email;
             return this;
         }
 
-        public Builder setHomeNo(int homeNo) {
+        public Contact.Builder setHomeNo(int homeNo) {
             this.homeNo = homeNo;
             return this;
         }
-        private Builder copy(Contact cnt){
+        private Contact.Builder copy(Contact cnt){
             this.homeNo = cnt.homeNo;
             this.email = cnt.email;
             this.cellPhoneNo = cnt.cellPhoneNo;
