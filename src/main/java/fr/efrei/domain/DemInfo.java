@@ -4,7 +4,7 @@ public class DemInfo {
     private String race;
     private String gender;
 
-    public DemInfo(Contact.Builder builder) {
+    public DemInfo(Builder builder) {
         this.race = builder.race;
         this.gender = builder.gender;
     }
@@ -19,28 +19,27 @@ public class DemInfo {
     }
 
 
-
     public static class Builder {
         private String race;
         private String gender;
 
-        public Contact.Builder setRace(String race) {
+        public Builder setRace(String race) {
             this.race = race;
             return this;
         }
 
-        public Contact.Builder setGender(String gender) {
+        public Builder setGender(String gender) {
             this.gender = gender;
             return this;
         }
 
-        private Contact.Builder copy(Contact cnt){
-            this.race = cnt.race;
-            this.gender = cnt.gender;
+        private Builder copy(DemInfo dm){
+            this.race = dm.race;
+            this.gender = dm.gender;
             return this;
         }
-        public Contact build(){
-            return new Contact(this);
+        public DemInfo build(){
+            return new DemInfo(this);
         }
     }
 }
