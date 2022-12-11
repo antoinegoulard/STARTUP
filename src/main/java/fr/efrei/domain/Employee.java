@@ -55,6 +55,12 @@ public class Employee  {
     public static class Builder{
         private int employeeNo;
         private String name;
+        private Address address;
+        private Contact contact;
+        private Identity identity;
+        private Job job;
+        private DemInfo demInfo;
+
 
         public Builder setEmployeeNo(int employeeNo) {
             this.employeeNo = employeeNo;
