@@ -10,7 +10,7 @@ public class Main {
         System.out.println("TAP 1: ADD AN EMPLOYEE\n");
         System.out.println("TAP 2: REMOVE AN EMPLOYEE\n");
         System.out.println("TAP 3: UPDATE EMPLOYEE'S INFORMATIONS\n");
-        System.out.println("TAP 4: DISPLAY THE EMPLOYEE'S LIST\n");
+        System.out.println("TAP 4: DIIISPLAY THE EMPLOYEE'S LIST\n");
         System.out.println("Enter an option : ");
         Scanner myObj = new Scanner(System.in);
         int option = myObj.nextInt();
