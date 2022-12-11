@@ -4,7 +4,12 @@ import java.util.Locale;
 
 public class Employee  {
     private int employeeNo;
-   private String name;
+    private String name;
+    private Address adress ;
+    private Contact contact1;
+    private Identity identity;
+    private Job job;
+    private DemInfo deminfo;
 
 
     public Employee(Builder builder) {
