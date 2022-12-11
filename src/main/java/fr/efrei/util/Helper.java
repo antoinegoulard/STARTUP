@@ -30,19 +30,5 @@ public class Helper
         String id = new String ("");
         return id;
     }
-
-    public static boolean isNullOrEmpty(String s)
-    {
-        if ((s == true)||(s.isEmpty()))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
-    }
-
+}
 
