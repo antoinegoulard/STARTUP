@@ -12,7 +12,7 @@ public class Main {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 
         //faire buffer witter et reader
-        List<Employee> cl = new ArrayList<>();
+        List<Employee> c = new ArrayList<>();
         FileReader EfreiS = new FileReader("Employee.txt");
         BufferedReader br = new BufferedReader(EfreiS);
         String i;
@@ -35,11 +35,11 @@ public class Main {
 
             Employee s = new Employee.Builder().setEmployeeNo(Integer.parseInt(Sam[0])).setName(Sam[1]).setDemInfo(deminfo1).setIdentity(identity1).setContact(contact1).setJob(job1).setAddress(adress1).build();
             System.out.println(s);
-            cl.add(s);
+            c.add(s);
             }
 
 
-        System.out.println(cl);
+        System.out.println(c);
 
 
 
@@ -135,19 +135,17 @@ public class Main {
 
                     Employee s = new Employee.Builder().setEmployeeNo(emplNo).setName(nom).setDemInfo(deminfo2).setIdentity(identity2).setContact(contact2).setJob(job2).setAddress(adress2).build();
 
-                    cl.add(s);
+                  //  c.add(s);
                     System.out.println(s);
 
 
-                    System.out.println(cl);
+                    System.out.println(c);
                     File f = new File("Employee.txt");
-                    f.createNewFile();
-                    FileWriter fw = new FileWriter(f);
                     BufferedWriter bw = null;
-
-
-                    fw = new FileWriter(f.getAbsoluteFile(), true);
+                    f.createNewFile();
+                    FileWriter fw = new FileWriter(f.getAbsoluteFile(), true);
                     bw = new BufferedWriter(fw);
+
                     bw.newLine();
                     bw.write(emplNo+ "#" + nom + "#" + deminfo1 + ";" + deminfoh+ "#" + id1 + ";" + id2 + "#" + contctphone + ";" + contctmail + ";" + contcthomeNo + "#" + post1 + ";" +post2 + ";" + post3 + "#" + address_street + ";" + address_postal + "# ");
 
@@ -160,7 +158,7 @@ public class Main {
                     System.out.println("REMOVE AN EMPLOYEE\n");
                     Scanner hi = new Scanner(System.in);
                     String name = hi.next();
-                    cl.remove(name);
+                    c.remove(name);
                     break;
                 case 3:
                     System.out.println("UPDATE EMPLOYEE'S INFORMATIONS\n");
@@ -252,7 +250,7 @@ public class Main {
                 case 4:
                     System.out.println("DISPLAY THE EMPLOYEE'S LIST\n");
 
-                    System.out.println(cl);
+                    System.out.println(c);
 
                     break;
             }
