@@ -23,7 +23,7 @@ public class Employee  {
                 ", job=" + job +
                 ", demInfo=" + demInfo +
                 ", identity=" + identity +
-                '}';
+                "}\n";
     }
 
     public Employee(Builder builder) {
