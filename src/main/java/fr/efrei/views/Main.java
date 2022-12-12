@@ -58,9 +58,84 @@ public class Main {
 
 
                     System.out.println("ADD AN EMPLOYEE\n");
-                    // Employee emp = new Employee();
 
-                    // cl.add(emp);
+
+                    Scanner sc = new Scanner(System.in);
+                    System.out.println("Enter the name of the employee : ");
+                    String nom = sc.next();
+                    System.out.println(nom);
+                    System.out.println("Enter the Number of the employee : ");
+                    int emplNo = sc.nextInt();
+                    System.out.println(emplNo);
+                    System.out.println("Enter the contact of the employee : ");
+
+                    System.out.println("Phone number : ");
+                    int contctphone = sc.nextInt();
+                    System.out.println(contctphone);
+                    System.out.println("Email : ");
+                    String contctmail = sc.next();
+                    System.out.println(contctmail);
+                    System.out.println("Home Number: ");
+                    int contcthomeNo = sc.nextInt();
+                    System.out.println(contcthomeNo);
+
+                    System.out.println("Enter the address of the employee : ");
+                    System.out.println("Street Address : ");
+                    String address_street = sc.next();
+                    System.out.println(address_street);
+                    System.out.println("Postal Address : ");
+                    String address_postal = sc.next();
+                    System.out.println(address_postal);
+
+
+                    System.out.println("Enter the job of the employee : ");
+                    System.out.println("Title : ");
+                    String post1 = sc.next();
+                    System.out.println(post1);
+                    System.out.println(" Position Code : ");
+                    String post2 = sc.next();
+                    System.out.println(post2);
+                    System.out.println("Statue : ");
+                    Boolean post3 = sc.nextBoolean();
+                    System.out.println(post3);
+
+
+
+                    System.out.println("Enter the demographic information of the employee : ");
+                    System.out.println("Race : ");
+                    String deminfo1 = sc.next();
+                    System.out.println(deminfo1);
+                    System.out.println("Gender : ");
+                    String deminfoh = sc.next();
+                    System.out.println(deminfoh);
+
+
+                    System.out.println("Enter the identity of the employee : ");
+                    System.out.println("Passport : ");
+                    String id1 = sc.next();
+                    System.out.println(id1);
+                    System.out.println("ID Number : ");
+                    int id2 = sc.nextInt();
+                    System.out.println(id2);
+
+                    Address adress2 = new Address.Builder().setStreet_address(address_street).setPostal_address(address_postal).build();
+                    System.out.println(adress2);
+                    DemInfo deminfo2 = new DemInfo.Builder().setGender(deminfoh).setRace(deminfo1).build();
+                    System.out.println(deminfo2);
+                    Identity identity2 = new Identity.Builder().setPassport(id1).setIdNo(id2).build();
+                    System.out.println(identity2);
+                    Job job2 = new Job.Builder().setTitle(post1).setStatue(post3).setPositionCode(post2).build();
+                    System.out.println(job2);
+                    Contact contact2 = new Contact.Builder().setCellPhoneNo(contctphone).setEmail(contctmail).setHomeNo(contcthomeNo).build();
+                    System.out.println(contact2);
+
+
+                    Employee s = new Employee.Builder().setEmployeeNo(emplNo).setName(nom).setDemInfo(deminfo2).setIdentity(identity2).setContact(contact2).setJob(job2).setAddress(adress2).build();
+
+                    cl.add(s);
+                    System.out.println(s);
+
+                    System.out.println(cl);
                     // on doit ajouter au fichier texte le nouvel employé a cet endroit
                     break;
                 case 2:
@@ -68,98 +143,102 @@ public class Main {
                     break;
                 case 3:
                     System.out.println("UPDATE EMPLOYEE'S INFORMATIONS\n");
+
+
+                    System.out.println("1. Address informations" +
+                            "2. Contact informations" +
+                            "3. Identity informations" +
+                            "4. Job informations" +
+                            "5. Demographic informations");
+                    System.out.println("Enter an option : ");
+                    Scanner myObj2 = new Scanner(System.in);
+                    int optionUpdate = myObj2.nextInt();
+
+                    switch (optionUpdate) {
+                        case 1:
+                            System.out.println("1. Street address" +
+                                    "2. Postal address");
+                            System.out.println("Enter an option : ");
+                            Scanner myObj3 = new Scanner(System.in);
+                            int optionAddress = myObj3.nextInt();
+                            switch (optionAddress) {
+                                case 1:
+                                    break;
+                                case 2:
+                                    break;
+                            }
+                            break;
+                        case 2:
+                            System.out.println("1. Cell Phone No." +
+                                    "2. Email" +
+                                    "3. Home No.");
+                            System.out.println("Enter an option : ");
+                            Scanner myObj4 = new Scanner(System.in);
+                            int optionContact = myObj4.nextInt();
+                            switch (optionContact) {
+                                case 1:
+                                    break;
+                                case 2:
+                                    break;
+                                case 3:
+                                    break;
+                            }
+                            break;
+                        case 3:
+                            System.out.println("1. Passport No." +
+                                    "2. ID No.");
+                            System.out.println("Enter an option : ");
+                            Scanner myObj5 = new Scanner(System.in);
+                            int optionIdentity = myObj5.nextInt();
+                            switch (optionIdentity) {
+                                case 1:
+                                    break;
+                                case 2:
+                                    break;
+                            }
+                            break;
+                        case 4:
+                            System.out.println("1. Job's title" +
+                                    "2. Position's code" +
+                                    "3. Status");
+                            System.out.println("Enter an option : ");
+                            Scanner myObj6 = new Scanner(System.in);
+                            int optionJob = myObj6.nextInt();
+                            switch (optionJob) {
+                                case 1:
+                                    break;
+                                case 2:
+                                    break;
+                                case 3:
+                                    break;
+                            }
+                            break;
+                        case 5:
+                            System.out.println("1. Race" +
+                                    "2. Gender");
+                            System.out.println("Enter an option : ");
+                            Scanner myObj7 = new Scanner(System.in);
+                            int optionDemInfo = myObj7.nextInt();
+                            switch (optionDemInfo) {
+                                case 1:
+                                    break;
+                                case 2:
+                                    break;
+                            }
+                            break;
+                    }
                     break;
                 case 4:
                     System.out.println("DISPLAY THE EMPLOYEE'S LIST\n");
+
+                    System.out.println(cl);
+
                     break;
             }
 
 
             //--------------------------
 
-
-            System.out.println("1. Address informations" +
-                    "2. Contact informations" +
-                    "3. Identity informations" +
-                    "4. Job informations" +
-                    "5. Demographic informations");
-            System.out.println("Enter an option : ");
-            Scanner myObj2 = new Scanner(System.in);
-            int optionUpdate = myObj2.nextInt();
-
-            switch (optionUpdate) {
-                case 1:
-                    System.out.println("1. Street address" +
-                            "2. Postal address");
-                    System.out.println("Enter an option : ");
-                    Scanner myObj3 = new Scanner(System.in);
-                    int optionAddress = myObj3.nextInt();
-                    switch (optionAddress) {
-                        case 1:
-                            break;
-                        case 2:
-                            break;
-                    }
-                    break;
-                case 2:
-                    System.out.println("1. Cell Phone No." +
-                            "2. Email" +
-                            "3. Home No.");
-                    System.out.println("Enter an option : ");
-                    Scanner myObj4 = new Scanner(System.in);
-                    int optionContact = myObj4.nextInt();
-                    switch (optionContact) {
-                        case 1:
-                            break;
-                        case 2:
-                            break;
-                        case 3:
-                            break;
-                    }
-                    break;
-                case 3:
-                    System.out.println("1. Passport No." +
-                            "2. ID No.");
-                    System.out.println("Enter an option : ");
-                    Scanner myObj5 = new Scanner(System.in);
-                    int optionIdentity = myObj5.nextInt();
-                    switch (optionIdentity) {
-                        case 1:
-                            break;
-                        case 2:
-                            break;
-                    }
-                    break;
-                case 4:
-                    System.out.println("1. Job's title" +
-                            "2. Position's code" +
-                            "3. Status");
-                    System.out.println("Enter an option : ");
-                    Scanner myObj6 = new Scanner(System.in);
-                    int optionJob = myObj6.nextInt();
-                    switch (optionJob) {
-                        case 1:
-                            break;
-                        case 2:
-                            break;
-                        case 3:
-                            break;
-                    }
-                    break;
-                case 5:
-                    System.out.println("1. Race" +
-                            "2. Gender");
-                    System.out.println("Enter an option : ");
-                    Scanner myObj7 = new Scanner(System.in);
-                    int optionDemInfo = myObj7.nextInt();
-                    switch (optionDemInfo) {
-                        case 1:
-                            break;
-                        case 2:
-                            break;
-                    }
-                    break;
-            }
         }
     }
 

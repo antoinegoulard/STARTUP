@@ -1,7 +1,7 @@
 package fr.efrei.util;
 import java.util.List;
 
-import fr.efrei.domain.Employee;
+import fr.efrei.domain.*;
 
 import java.util.*;
 
@@ -37,96 +37,67 @@ public class Helper
     }
 
 
-    public void Add(){
-        List<Employee> cl = new ArrayList<Employee>();
+    public Employee CreateEmployee(){
 
 
-        System.out.println("Enter the name of the employee : ");
         Scanner sc = new Scanner(System.in);
-        String name = sc.next();
+        System.out.println("Enter the name of the employee : ");
+        String nom = sc.next();
 
         System.out.println("Enter the Number of the employee : ");
-
-
-        System.out.println("Enter the contact of the employee : ");
-        Scanner contact = new Scanner(System.in);
-
-        System.out.println("Enter the address of the employee : ");
-        Scanner address = new Scanner(System.in);
-
-        System.out.println("Enter the job of the employee : ");
-        Scanner job = new Scanner(System.in);
-
-        System.out.println("Enter the demographic information of the employee : ");
-        Scanner deminfo = new Scanner(System.in);
-
-        System.out.println("Enter the identity of the employee : ");
-        Scanner id = new Scanner(System.in);
-
-
-        --------------
-
-                System.out.println("Enter the name of the employee : ");
-        Scanner nom = new Scanner(System.in);
-
-        System.out.println("Enter the Number of the employee : ");
-        Scanner emplNo = new Scanner(System.in);
+        int emplNo = sc.nextInt();
 
         System.out.println("Enter the contact of the employee : ");
+
         System.out.println("Phone number : ");
-        Scanner contctphone = new Scanner(System.in);
+        int contctphone = sc.nextInt();
         System.out.println("Email : ");
-        Scanner contctmail = new Scanner(System.in);
+        String contctmail = sc.next();
         System.out.println("Home Number: ");
-        Scanner contcthomeNo = new Scanner(System.in);
+        int contcthomeNo = sc.nextInt();
 
         System.out.println("Enter the address of the employee : ");
         System.out.println("Street Address : ");
-        Scanner address_street = new Scanner(System.in);
+        String address_street = sc.next();
         System.out.println("Postal Address : ");
-        Scanner address_postal = new Scanner(System.in);
+        String address_postal = sc.next();
 
 
         System.out.println("Enter the job of the employee : ");
         System.out.println("Title : ");
-        Scanner post1 = new Scanner(System.in);
+        String post1 = sc.next();
         System.out.println(" Position Code : ");
-        Scanner post2 = new Scanner(System.in);
+        String post2 = sc.next();
         System.out.println("Statue : ");
-        Scanner post3 = new Scanner(System.in);
+        Boolean post3 = sc.nextBoolean();
 
 
 
         System.out.println("Enter the demographic information of the employee : ");
         System.out.println("Race : ");
-        Scanner deminfo1 = new Scanner(System.in);
+        String deminfo1 = sc.next();
         System.out.println("Gender : ");
-        Scanner deminfo2 = new Scanner(System.in);
+        String deminfoh = sc.next();
 
 
         System.out.println("Enter the identity of the employee : ");
         System.out.println("Passport : ");
-        Scanner id1 = new Scanner(System.in);
+        String id1 = sc.next();
         System.out.println("ID Number : ");
-        Scanner id2 = new Scanner(System.in);
+        int id2 = sc.nextInt();
+
+        Address adress2 = new Address.Builder().setStreet_address(address_street).setPostal_address(address_postal).build();
+        DemInfo deminfo2 = new DemInfo.Builder().setGender(deminfoh).setRace(deminfo1).build();
+        Identity identity2 = new Identity.Builder().setPassport(id1).setIdNo(id2).build();
+        Job job2 = new Job.Builder().setTitle(post1).setStatue(post3).setPositionCode(post2).build();
+        Contact contact2 = new Contact.Builder().setCellPhoneNo(contctphone).setEmail(contctmail).setHomeNo(contcthomeNo).build();
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+        Employee s = new Employee.Builder().setEmployeeNo(emplNo).setName(nom).setDemInfo(deminfo2).setIdentity(identity2).setContact(contact2).setJob(job2).setAddress(adress2).build();
+        return s;
 
 
 }
-
-
 }
 
