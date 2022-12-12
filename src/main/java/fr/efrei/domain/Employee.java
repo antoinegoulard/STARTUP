@@ -29,6 +29,11 @@ public class Employee  {
     public Employee(Builder builder) {
         this.employeeNo = builder.employeeNo;
         this.name = builder.name;
+        this.address = builder.address;
+        this.contact = builder.contact;
+        this.job = builder.job;
+        this.demInfo = builder.demInfo;
+        this.identity = builder.identity;
     }
 
     public int getEmployeeNo() {

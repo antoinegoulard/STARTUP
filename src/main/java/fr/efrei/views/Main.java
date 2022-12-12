@@ -1,7 +1,6 @@
 package fr.efrei.views;
 
 import fr.efrei.domain.*;
-import fr.efrei.factory.EmployeeFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -119,8 +118,8 @@ public class Main {
                     int id2 = sc.nextInt();
                     System.out.println(id2);
 
-                    Address address2 = new Address.Builder().setStreet_address(address_street).setPostal_address(address_postal).build();
-                    System.out.println(address2);
+                    Address adress2 = new Address.Builder().setStreet_address(address_street).setPostal_address(address_postal).build();
+                    System.out.println(adress2);
                     DemInfo deminfo2 = new DemInfo.Builder().setGender(deminfoh).setRace(deminfo1).build();
                     System.out.println(deminfo2);
                     Identity identity2 = new Identity.Builder().setPassport(id1).setIdNo(id2).build();
@@ -131,10 +130,10 @@ public class Main {
                     System.out.println(contact2);
 
 
-                    //Employee s = new Employee.Builder().setEmployeeNo(emplNo).setName(nom).setDemInfo(deminfo2).setIdentity(identity2).setContact(contact2).setJob(job2).setAddress(adress2).build();
-                    Employee n = EmployeeFactory.createEmployee(emplNo, nom, address2, contact2, identity2, job2, deminfo2);
-                    cl.add(n);
-                    System.out.println(n);
+                    Employee s = new Employee.Builder().setEmployeeNo(emplNo).setName(nom).setDemInfo(deminfo2).setIdentity(identity2).setContact(contact2).setJob(job2).setAddress(adress2).build();
+
+                    cl.add(s);
+                    System.out.println(s);
 
                     System.out.println(cl);
                     // on doit ajouter au fichier texte le nouvel employé a cet endroit
