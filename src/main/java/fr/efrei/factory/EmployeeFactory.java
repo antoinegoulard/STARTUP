@@ -7,6 +7,7 @@ import static fr.efrei.util.Helper.isZero;
 public class EmployeeFactory {
     public static Employee createEmployee(int employeeNo, String name, Address address, Contact contact, Identity identity,
                                           Job job, DemInfo demInfo){
+        /*
         if (isZero(employeeNo) ||
                 Helper.isNullOrEmpty(name) ||
                 Helper.isNullOrEmpty(address.getStreet_address()) ||
@@ -22,8 +23,9 @@ public class EmployeeFactory {
                 Helper.isNullOrEmpty(demInfo.getGender())){
             return null;
         }
+         */
 
-        Employee employee = new Employee.Builder().setEmployeeNo(employeeNo).setName(name).build();
+        Employee employee = new Employee.Builder().setEmployeeNo(employeeNo).setName(name).setContact(contact).setAddress(address).setJob(job).setDemInfo(demInfo).setIdentity(identity).build();
         return employee;
     }
 }
