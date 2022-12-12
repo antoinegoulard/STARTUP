@@ -9,11 +9,11 @@ import java.io.*;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
 
         //faire buffer witter et reader
         List<Employee> cl = new ArrayList<>();
-        FileReader EfreiS = new FileReader("Employees.txt");
+        FileReader EfreiS = new FileReader("Employee.txt");
         BufferedReader br = new BufferedReader(EfreiS);
         String i;
         while ((i = br.readLine()) != null) {
@@ -23,7 +23,8 @@ public class Main {
             String[] Antoine3 = Sam[3].split(";");
             String[] Antoine4 = Sam[4].split(";");
             String[] Antoine5 = Sam[5].split(";");
-            String[] Antoine6 = Sam[6].split(";");
+
+             String[] Antoine6 = Sam[6].split(";");
             Address adress1 = new Address.Builder().setStreet_address(Antoine6[0]).setPostal_address(Antoine6[1]).build();
             DemInfo deminfo1 = new DemInfo.Builder().setGender(Antoine2[0]).setRace(Antoine2[1]).build();
             Identity identity1 = new Identity.Builder().setPassport(Antoine3[0]).setIdNo(Integer.parseInt(Antoine3[1])).build();
@@ -33,11 +34,13 @@ public class Main {
 
 
             Employee s = new Employee.Builder().setEmployeeNo(Integer.parseInt(Sam[0])).setName(Sam[1]).setDemInfo(deminfo1).setIdentity(identity1).setContact(contact1).setJob(job1).setAddress(adress1).build();
-
-
+            System.out.println(s);
+            cl.add(s);
             }
 
-            // cl.add(s);
+
+        System.out.println(cl);
+
 
 
             System.out.println("----------- STARTUP MENU : -----------\n");
@@ -135,11 +138,29 @@ public class Main {
                     cl.add(s);
                     System.out.println(s);
 
+
                     System.out.println(cl);
-                    // on doit ajouter au fichier texte le nouvel employé a cet endroit
+                    File f = new File("Employee.txt");
+                    f.createNewFile();
+                    FileWriter fw = new FileWriter(f);
+                    BufferedWriter bw = null;
+
+
+                    fw = new FileWriter(f.getAbsoluteFile(), true);
+                    bw = new BufferedWriter(fw);
+                    bw.newLine();
+                    bw.write(emplNo+ "#" + nom + "#" + deminfo1 + ";" + deminfoh+ "#" + id1 + ";" + id2 + "#" + contctphone + ";" + contctmail + ";" + contcthomeNo + "#" + post1 + ";" +post2 + ";" + post3 + "#" + address_street + ";" + address_postal + "# ");
+
+
+                    fw.flush();
+                    bw.close();
+                    fw.close();
                     break;
                 case 2:
                     System.out.println("REMOVE AN EMPLOYEE\n");
+                    Scanner hi = new Scanner(System.in);
+                    String name = hi.next();
+                    cl.remove(name);
                     break;
                 case 3:
                     System.out.println("UPDATE EMPLOYEE'S INFORMATIONS\n");

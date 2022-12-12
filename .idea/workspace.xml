@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e161228f-91c8-46d2-9fbd-149cb10c2883" name="Changes" comment="class">
+      <change afterPath="$PROJECT_DIR$/Employee.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/efrei/util/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/efrei/util/Helper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Employees.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/efrei/views/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/efrei/views/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
